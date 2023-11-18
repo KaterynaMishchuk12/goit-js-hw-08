@@ -24,11 +24,13 @@ function onInput(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
-
+  if (input.value === '' || textarea.value === '')
+    return alert`Please fill in all the blanks`;
   let data = JSON.parse(localStorage.getItem(FEEDBACK_FORM_KEY));
 
   event.currentTarget.reset();
   localStorage.removeItem(FEEDBACK_FORM_KEY);
+  console.log(formData);
 }
 
 function populateTextarea() {
